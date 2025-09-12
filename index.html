@@ -206,13 +206,13 @@
                 <p class="text-lg text-blue-600 mb-8">Aprende ahora en la comodidad de tu hogar a hacer todo tipo de figuras con el papel.</p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#" class="px-8 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 text-center transition-colors shadow-lg hover:shadow-xl">Empieza ahora</a>
-                    <a href="#" class="px-8 py-3 border-2 border-blue-400 text-blue-600 rounded-lg font-medium hover:bg-blue-50 text-center transition-colors">Ver demostración</a>
+                    <a href="#gallery" class="px-8 py-3 border-2 border-blue-400 text-blue-600 rounded-lg font-medium hover:bg-blue-50 text-center transition-colors" onclick="showGallery()">Ver demostración</a>
                 </div>
                 
             </div>
             
             <div class="md:w-1/2 flex justify-center relative">
-                <div class="relative folding-paper hover-scale">
+                <div class="relative folding-paper">
                     <div class="absolute -top-6 -left-6 w-24 h-24 bg-blue-200 rounded-lg opacity-50"></div>
                     <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-300 rounded-lg opacity-50"></div>
                     <div class="paper-corner"></div>
@@ -278,7 +278,7 @@
                         <i class="fas fa-heart text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-blue-800 mb-3">Reducción del estrés</h3>
-                    <p class="text-blue-600">Actividad meditativa que reduce la ansiedad. El enfoque requerido en el plegado de papel promueve la atención plena.</p>
+                    <p class="text-blue-600">Actividad meditativa que reduces la ansiedad. El enfoque requerido en el plegado de papel promueve la atención plena.</p>
                     <div class="absolute -right-4 -bottom-4 text-blue-200 text-6xl opacity-20">
                         <i class="fas fa-heart"></i>
                     </div>
@@ -349,7 +349,7 @@
                         </div>
                         <div class="flex justify-between items-center">
                             <div>
-                                <span class="text-lg font-bold text-blue-800">Gratis</span>
+                                <span class="text-lg font-bold text-blue-800">Gratuito</span>
                             </div>
                             <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600 transition-colors">Ver curso</a>
                         </div>
@@ -602,6 +602,103 @@
     </button>
 
     <script>
+        function showGallery() {
+            document.body.innerHTML = `
+                <header class="bg-white shadow-sm sticky top-0 z-50">
+                    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <svg width="50" height="50" viewBox="0 0 100 100" class="text-blue-400 mr-3">
+                                <path d="M50,10 L70,30 L80,20 L90,40 L70,50 L80,70 L50,80 L20,70 L30,50 L10,40 L20,20 L30,30 Z" fill="currentColor"/>
+                            </svg>
+                            <h1 class="text-2xl font-bold text-blue-600">Easy<span class="text-blue-400">Origami</span></h1>
+                        </div>
+                        <a href="index.html" class="px-4 py-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600 transition-colors">Volver</a>
+                    </div>
+                </header>
+
+                <section class="py-16 bg-white">
+                    <div class="container mx-auto px-4">
+                        <h2 class="text-3xl font-bold text-blue-800 mb-12 text-center">Galería de Origami</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 text-center cursor-pointer" onclick="showVideo('cisne')">
+                                <img src="https://d2bzx2vuetkzse.cloudfront.net/fit-in/0x450/unshoppable_producs/f3a28ae4-473c-42ea-a3d3-967d9a275837.png" alt="Cisne de papel" class="w-full h-38 object-cover rounded mb-4">
+                                <h3 class="text-xl font-semibold text-blue-800">Cisne de papel</h3>
+                            </div>
+                            ${Array(5).fill(0).map((_, i) => `
+                                <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 text-center opacity-70">
+                                    <div class="w-full h-48 bg-blue-100 rounded mb-4 flex items-center justify-center">
+                                        <span class="text-blue-400 text-lg">Próximamente</span>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-blue-800">Nuevo diseño</h3>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function showVideo(model) {
+    if (model === 'cisne') {
+        document.body.innerHTML = `
+            <header class="bg-white shadow-sm sticky top-0 z-50">
+                <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <svg width="50" height="50" viewBox="0 0 100 100" class="text-blue-400 mr-3">
+                            <path d="M50,10 L70,30 L80,20 L90,40 L70,50 L80,70 L50,80 L20,70 L30,50 L10,40 L20,20 L30,30 Z" fill="currentColor"/>
+                        </svg>
+                        <h1 class="text-2xl font-bold text-blue-600">Easy<span class="text-blue-400">Origami</span></h1>
+                    </div>
+                    <div>
+                        <a href="#gallery" class="px-4 py-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600 transition-colors mr-2" onclick="showGallery()">Volver</a>
+                        <a href="index.html" class="px-4 py-2 border border-blue-500 text-blue-600 rounded-md text-sm hover:bg-blue-50 transition-colors">Inicio</a>
+                    </div>
+                </div>
+            </header>
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-4 max-w-4xl">
+                    <h2 class="text-3xl font-bold text-blue-800 mb-6 text-center">Tutorial: Cisne de papel</h2>
+                    <div class="relative mb-8">
+                        <video class="w-full h-96" controls>
+                            <source src="demo1.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Materiales necesarios:</h3>
+                        <ul class="list-disc pl-5 text-blue-600 space-y-2">
+                            <li>1 hoja cuadrada de papel de origami (20x20 cm)</li>
+                            <li>Tijeras (opcional para recortar)</li>
+                            <li>Superficie plana para trabajar</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+                `;
+
+                // Video slider functionality
+                const videoSlider = document.getElementById('video-slider');
+                const nextButton = document.getElementById('next-video');
+                const prevButton = document.getElementById('prev-video');
+                let currentSlide = 0;
+
+                nextButton.addEventListener('click', () => {
+                    currentSlide = 1;
+                    videoSlider.style.transform = 'translateX(-50%)';
+                    nextButton.classList.add('opacity-0', 'invisible');
+                    prevButton.classList.remove('opacity-0', 'invisible');
+                });
+
+                prevButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    videoSlider.style.transform = 'translateX(0)';
+                    prevButton.classList.add('opacity-0', 'invisible');
+                    nextButton.classList.remove('opacity-0', 'invisible');
+                });
+            }
+        }
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
@@ -691,3 +788,4 @@
     </script>
 </body>
 </html>
+
